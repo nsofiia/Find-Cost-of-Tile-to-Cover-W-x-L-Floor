@@ -16,7 +16,7 @@
         {
             Console.WriteLine("Radius ");
             double radius = (double)Convert.ToDouble(Console.ReadLine());
-            roomArea = Math.PI * radius* radius;
+            roomArea = Math.PI * radius * radius;
         }
         if (roomShape == 2)
         {
