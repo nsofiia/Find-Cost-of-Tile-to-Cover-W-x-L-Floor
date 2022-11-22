@@ -1,13 +1,13 @@
 ﻿namespace Find_Cost_of_Tile_to_Cover_W_x_L_Floor;
     class Program
     {
+        const int TILE_PER_HOUR = 20;
+        const double LABOUR_HOUR_PRICE = 86.0;
     static void Main(string[] args)
     {
         Console.WriteLine("Hello friend! Let's change your floor.\nWhat is the price you are expecting to pay per 1 tile?");
         double costSingleTile = (double)Convert.ToDouble(Console.ReadLine());
         double roomArea = 0;
-        const int TILE_PER_HOUR = 20;
-        const double LABOUR_HOUR_PRICE = 86.0;
         Console.WriteLine("Got it!\nEnter the number corresponding with the room shape you have:\n" +
             "1. circle\r\n2. suqare or rectangular\r\n3. triangle\r\nType answer here and press enter:"); ;
         double roomShape = (double)Convert.ToDouble(Console.ReadLine());
