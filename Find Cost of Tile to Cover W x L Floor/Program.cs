@@ -18,7 +18,7 @@
             double radius = (double)Convert.ToDouble(Console.ReadLine());
             roomArea = Math.PI * radius* radius;
         }
-        if (roomShape== 2)
+        if (roomShape == 2)
         {
             Console.WriteLine("What is width?");
             double width = (double)Convert.ToDouble(Console.ReadLine());
