@@ -1,8 +1,8 @@
 ﻿namespace Find_Cost_of_Tile_to_Cover_W_x_L_Floor;
     class Program
     {
-    const int TILE_PER_HOUR = 20;
-    const double LABOUR_HOUR_PRICE = 86.0;
+        const int TILE_PER_HOUR = 20;
+        const double LABOUR_HOUR_PRICE = 86.0;
     static void Main(string[] args)
     {
         Console.WriteLine("Hello friend! Let's change your floor.\nWhat is the price you are expecting to pay per 1 tile?");
@@ -16,7 +16,7 @@
         {
             Console.WriteLine("Radius ");
             double radius = (double)Convert.ToDouble(Console.ReadLine());
-            roomArea = Math.PI * radius* radius;
+            roomArea = Math.PI * radius * radius;
         }
         if (roomShape == 2)
         {
