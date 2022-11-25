@@ -17,24 +17,20 @@ class Program
             }
             catch (System.FormatException)
             {
-                Console.WriteLine("this input is not supported, use only numbers for price entry");
+                Console.WriteLine("this input is not supported");
             }
         }
         Console.WriteLine("Got it!\nEnter the number corresponding with the room shape you have:\n" +
             "1. circle\r\n2. suqare or rectangular\r\n3. triangle\r\nType answer here and press enter:");
-        while (roomShape == 0 || roomShape > 3)
+        while (roomShape < 1 || roomShape > 3)
         {
             try
             {
                 roomShape = Convert.ToInt32(Console.ReadLine());
-                if (roomShape > 3)
-                {
-                    Console.WriteLine("this input is not supported, use numbers from 1 to 3 for room shape selection");
-                }
             }
             catch (System.FormatException)
             {
-                Console.WriteLine("this input is not supported, use numbers from 1 to 3 for room shape selection");
+                Console.WriteLine("this input is not supported");
             }
         }
         Console.WriteLine("Enter your measurements:");
@@ -50,7 +46,7 @@ class Program
                 }
                 catch (System.FormatException)
                 {
-                    Console.WriteLine("this input is not supported, use numbers");
+                    Console.WriteLine("this input is not supported");
                 }
             }
             roomArea = Math.PI * radius * radius;
@@ -67,7 +63,7 @@ class Program
                 }
                 catch (System.FormatException)
                 {
-                    Console.WriteLine("this input is not supported, use numbers");
+                    Console.WriteLine("this input is not supported");
                 }
             }
             Console.WriteLine("What is length?");
@@ -80,7 +76,7 @@ class Program
                 }
                 catch (System.FormatException)
                 {
-                    Console.WriteLine("this input is not supported, use numbers");
+                    Console.WriteLine("this input is not supported");
                 }
             }
             roomArea = width * length;
@@ -97,7 +93,7 @@ class Program
                 }
                 catch (System.FormatException)
                 {
-                    Console.WriteLine("this input is not supported, use numbers");
+                    Console.WriteLine("this input is not supported");
                 }
             }
             Console.WriteLine("What is height side length?");
@@ -110,7 +106,7 @@ class Program
                 }
                 catch (System.FormatException)
                 {
-                    Console.WriteLine("this input is not supported, use numbers");
+                    Console.WriteLine("this input is not supported");
                 }
             }
             roomArea = 0.5 * (triangleBase * triangleHeight);
