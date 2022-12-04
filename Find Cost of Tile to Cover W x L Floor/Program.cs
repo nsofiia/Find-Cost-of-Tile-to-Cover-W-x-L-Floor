@@ -11,7 +11,7 @@ class Program
         double roomArea = 0;
         int roomShape = 0;
 
-        while (costSingleTile == 0)
+        while (costSingleTile <= 0)
         {
             try
             {
