@@ -45,7 +45,7 @@ class Program
             Console.WriteLine("Radius ");
             double radius = 0;
 
-            while (radius == 0)
+            while (radius <= 0)
             {
                 try
                 {
@@ -64,7 +64,7 @@ class Program
             double width = 0;
             double length = 0;
 
-            while (width == 0)
+            while (width <= 0)
             {
                 try
                 {
@@ -78,7 +78,7 @@ class Program
 
             Console.WriteLine("What is length?");
 
-            while (length == 0)
+            while (length <= 0)
             {
                 try
                 {
@@ -97,7 +97,7 @@ class Program
             double triangleBase = 0;
             double triangleHeight = 0;
 
-            while (triangleBase == 0)
+            while (triangleBase <= 0)
             {
                 try
                 {
@@ -111,7 +111,7 @@ class Program
 
             Console.WriteLine("What is height side length?");
 
-            while (triangleHeight == 0)
+            while (triangleHeight <= 0)
             {
                 try
                 {
