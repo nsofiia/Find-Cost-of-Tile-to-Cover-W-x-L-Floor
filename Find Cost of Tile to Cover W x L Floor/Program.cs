@@ -6,25 +6,26 @@ class Program
 
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello friend! Let's change your floor.\nWhat is the price you are expecting to pay per 1 tile?");
+        Console.WriteLine("Hello friend, let's change your floor!");
         double costSingleTile = 0;
         double roomArea = 0;
         int roomShape = 0;
 
-        while (costSingleTile <= 0)
+        while (costSingleTile <= 0)  //if input does not switch initial value to be more than 0 - keep executing
         {
+            Console.Write("\nWhat price are you comfortable paying per 1 tile?\n:$");
             try
             {
                 costSingleTile = Convert.ToDouble(Console.ReadLine());
             }
-            catch (System.FormatException)
+            catch (System.FormatException) // if entered value can not be converted into double, show following text
             {
-                Console.WriteLine("this input is not supported");
+                Console.WriteLine("this input is not supported, try again");
             }
         }
 
-        Console.WriteLine("Got it!\nEnter the number corresponding with the room shape you have:\n" +
-            "1. circle\r\n2. suqare or rectangular\r\n3. triangle\r\nType answer here and press enter:");
+        Console.WriteLine("\nGot it!\nEnter the number corresponding with the room shape:\n" +
+            "1. room is shaped like circle\r\n2. suqare or rectangular\r\n3. triangle shape\r\nType number and press enter:");
 
         while (roomShape < 1 || roomShape > 3)
         {
@@ -38,11 +39,9 @@ class Program
             }
         }
 
-        Console.WriteLine("Enter your measurements:");
-
         if (roomShape == 1)
         {
-            Console.WriteLine("Radius ");
+            Console.Write("What is Radius:");
             double radius = 0;
 
             while (radius <= 0)
@@ -56,7 +55,7 @@ class Program
                     Console.WriteLine("this input is not supported");
                 }
             }
-            roomArea = Math.PI * radius * radius;
+            roomArea = Math.PI * radius * radius; //calculating the area
         }
         if (roomShape == 2)
         {
@@ -93,7 +92,7 @@ class Program
         }
         if (roomShape == 3)
         {
-            Console.WriteLine("What is base length?");
+            Console.WriteLine("What is triangle base length?");
             double triangleBase = 0;
             double triangleHeight = 0;
 
@@ -109,7 +108,7 @@ class Program
                 }
             }
 
-            Console.WriteLine("What is height side length?");
+            Console.WriteLine("What is triangle height length?");
 
             while (triangleHeight <= 0)
             {
@@ -126,13 +125,51 @@ class Program
         }
 
         double priceTileAmmount = roomArea * costSingleTile;
-        Console.WriteLine("Your price for all tile is ${0:F2}", priceTileAmmount);
+        double numberOfTiles = priceTileAmmount / costSingleTile;
+        //ammount of tile needed
+        //cost for all tile
+        //need handy man help? - yes - no(find out total)
+        //handy man price
+        //handy man can finish all floor in
+        //get handyman - yes - show grand total - no (show total for only all tile)
+        Console.WriteLine($"\nResult is ready:\n{numberOfTiles.ToString("0")} pieces of tile needed!");
         double laborHours = (roomArea / TILE_PER_HOUR);
         double priceLabourAmmount = laborHours * LABOUR_HOUR_PRICE;
         double grandTotal = priceLabourAmmount + priceTileAmmount;
+        char addHandyMan = '0';
 
-        Console.WriteLine($"It will take approximately {laborHours.ToString("F0")} hours to get it done, at the " +
-            $"labour price of {LABOUR_HOUR_PRICE.ToString("C2")} per hour. Grand total with tile supply and handy man work is {grandTotal.ToString("C2")}");
-        Console.ReadKey(true);
+        while (true)
+        {
+            Console.WriteLine($"Would you like to use help of our handyman to finish the project?\ny - see handy man price; n - go to check out with tile");
+            addHandyMan = Char.ToUpper(Console.ReadKey().KeyChar);
+            if(addHandyMan == 'Y' || addHandyMan == 'N')
+            {
+                break;
+            }
+        }
+        if (addHandyMan == 'Y')
+        {
+            Console.Clear();
+            Console.WriteLine($"Our handyman can finish {TILE_PER_HOUR.ToString("0.00")} tiles in 1 hour.\n" +
+                $"With our best handyman the project will be done in {laborHours.ToString("0")} hours, at the " +
+            $"labour price of {LABOUR_HOUR_PRICE.ToString("C2")}hour.\n");
+
+            Console.WriteLine("Check out without handyman - press n\nAdd handyman help and check out - press h");
+            addHandyMan = Char.ToUpper(Console.ReadKey().KeyChar);
+
+        
+
+
+            Console.Write($"Grand total with tile supply and handy man work is {grandTotal.ToString("C2")}");
+
+        }
+        if (addHandyMan == 'N')
+        {
+            Console.Clear();
+            Console.WriteLine($"Check out:\nroom shape {roomShape}\nhandy man {addHandyMan}\nprice per 1 tile ${costSingleTile} x {numberOfTiles.ToString("0")}\n" +
+            $"Total: ${priceTileAmmount.ToString("0.00")}\nSwipe your card");
+            Console.ReadKey();
+        }
+        Console.ReadKey();
     }
 }
